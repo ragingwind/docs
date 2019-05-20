@@ -10,7 +10,7 @@ export const meta = {
   description:
     'The official Go Builder for ZEIT Now. Serverless invokable functions from Go source code for ZEIT Now deployments.',
   editUrl: 'pages/docs/v2/deployments/official-builders/go-now-go.mdx',
-  lastEdited: '2019-05-03T01:18:00.000Z'
+  lastEdited: '2019-05-20T10:16:58.000Z'
 }
 
 <Tag>Status: Alpha</Tag>
@@ -63,6 +63,29 @@ The entrypoint file must be a `.go` source file containing an exported function 
   <InlineCode>@now/go</InlineCode> will automatically detect a{' '}
   <InlineCode>go.mod</InlineCode> file to install dependencies at the entrypoint
   level.
+</Note>
+
+### Private packages
+
+To use private packages with `go get`, define git credential as [build environment variable](/docs/v2/deployments/configuration#build-env) in `now.json` as follows:
+
+```json
+{
+  "build": {
+    "env": {
+      "GIT_USERNAME": "username",
+      "GIT_TOKEN": "@secret-git-token",
+      "GIT_HOST": "github.com"
+    }
+  }
+}
+```
+
+We support major Git providers GitHub, GitLab, Bitbucket, and self-host Git server.
+
+<Note>
+  <InlineCode>GIT_HOST</InlineCode> expected value without protocol. We use
+  `HTTPS` by default.
 </Note>
 
 ### Version
