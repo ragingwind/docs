@@ -10,7 +10,7 @@ export const meta = {
   description:
     'The official Go Builder for ZEIT Now. Serverless invokable functions from Go source code for ZEIT Now deployments.',
   editUrl: 'pages/docs/v2/deployments/official-builders/go-now-go.mdx',
-  lastEdited: '2019-05-20T10:16:58.000Z'
+  lastEdited: '2019-05-21T10:34:57.000Z'
 }
 
 <Tag>Status: Alpha</Tag>
@@ -67,26 +67,21 @@ The entrypoint file must be a `.go` source file containing an exported function 
 
 ### Private packages
 
-To use private packages with `go get`, define git credential as [build environment variable](/docs/v2/deployments/configuration#build-env) in `now.json` as follows:
+To install private packages with `go get`, define `GIT_CREDENTIALS` as a [build environment variable](/docs/v2/deployments/configuration#build-env) in `now.json`.
+
+All major Git providers are supported including GitHub, GitLab, Bitbucket, as well as self-host Git server.
+
+With GitHub, you will need to create personal token with permission to access your private repository. [Generate new token](https://github.com/settings/tokens)
 
 ```json
 {
   "build": {
     "env": {
-      "GIT_USERNAME": "username",
-      "GIT_TOKEN": "@secret-git-token",
-      "GIT_HOST": "github.com"
+      "GIT_CREDENTIALS": "https://username:token@github.com"
     }
   }
 }
 ```
-
-We support major Git providers GitHub, GitLab, Bitbucket, and self-host Git server.
-
-<Note>
-  <InlineCode>GIT_HOST</InlineCode> expected value without protocol. We use
-  `HTTPS` by default.
-</Note>
 
 ### Version
 
