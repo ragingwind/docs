@@ -69,9 +69,9 @@ The entrypoint file must be a `.go` source file containing an exported function 
 
 To install private packages with `go get`, define `GIT_CREDENTIALS` as a [build environment variable](/docs/v2/deployments/configuration#build-env) in `now.json`.
 
-All major Git providers are supported including GitHub, GitLab, Bitbucket, as well as self-host Git server.
+All major Git providers are supported including GitHub, GitLab, Bitbucket, as well as a self-hosted Git server.
 
-With GitHub, you will need to create personal token with permission to access your private repository. [Generate new token](https://github.com/settings/tokens)
+With GitHub, you will need to [create a personal token](https://github.com/settings/tokens) with permission to access your private repository. 
 
 ```json
 {
